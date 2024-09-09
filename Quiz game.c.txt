@@ -1,0 +1,409 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// create a structure to represent a question
+struct Question {
+    char Q[1000];
+    char options[4][500];
+    int correctOption;
+};
+
+
+// create a Function to shuffle an array of questions structure randomly
+void shuffleQuestions(struct Question questions[], int numQuestions) {
+    for (int i = numQuestions - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        struct Question temp = questions[i];
+        questions[i] = questions[j];
+        questions[j] = temp;
+    }
+}
+
+int main()
+{
+  int i,y,x;
+  
+  //  user interface
+
+  printf("\n\n");
+  printf(" ៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛\n\n");
+
+  printf("                                                            # WELCOME TO THE QUIZ GAME #                                                             \n\n");
+
+  printf(" ៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛\n\n\n");
+
+  printf("                                          ################## Press 0 to Start The Game ##################\n");
+
+
+  scanf("%d",&y);
+
+  printf("\n\n");
+
+    if(y==0)
+    {
+
+      label :
+
+      printf("                                              ################## Select a Category ##################\n\n");
+
+      printf("\n\n");
+
+      printf(" ៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛\n\n");
+
+      printf("                                                            Press 1 to GENERAL IT CATEGORY                                                           \n");
+      printf("                                                            Press 2 to HISTORY CATEGORY                                                            \n");
+      printf("                                                            Press 3 to COMMON CATEGORY                                                            \n");
+      printf("                                                            Press 4 to SCIENCE CATEGORY                                                            \n");
+      printf("                                                            Press 5 to ARTS CATEGORY                                                            \n\n");
+      printf("                                                            Press 6 to EXIT GAME                                                            \n\n");
+
+      printf(" ៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛\n\n");
+
+      scanf("%d",&x);
+
+              // general IT category
+              if(x==1)
+              {
+
+                // Seed the random number generator
+                srand(time(NULL));
+
+                struct Question questions[] = {
+                {"Which Sri Lankan city is considered the country's IT hub and is home to the Sri Lanka Institute of Information Technology?",{"Colombo", "Kandy", "Galle", "Jaffna\n"} , 0},
+                {"What is the Sri Lankan government's initiative to promote the IT and Business Process Management (BPM) industry in the country?", {"Project Lanka", "IT Sri Lanka", "e-Sri Lanka", "Sri Lanka Tech Zone\n"}, 2},
+                {"Which Sri Lankan IT company is known for its software development and outsourcing services and is listed on the Colombo Stock Exchange?", {"Virtusa", "WSO2", "Sysco LABS", "99X Technology\n"}, 0},
+                {"What is the name of the Sri Lankan government's initiative to provide free Wi-Fi access in public places across the country?", {"LankaLink", "Wi-Fi Lanka", "LankaConnect", "Smart Lanka\n"}, 2},
+                {"Sri Lanka's first-ever satellite, Ravana-1  was launched into space in 2019. What was its primary purpose?", {"Telecommunications", "Earth observation", "Scientific research", "Weather forecasting\n"}, 1},
+                {"What is the Sri Lankan government agency responsible for regulating and overseeing the telecommunications and information technology sectors?", {"SLT (Sri Lanka Telecom)", "TRCSL (Telecommunications Regulatory Commission of Sri Lanka)", "LK Domain Registry", "CICT (Colombo International Container Terminals)\n"}, 1},
+                {"Which Sri Lankan software company is known for developing the popular open-source integration platform called WSO2?", {"Sysco LABS", "IFS Sri Lanka", "MillenniumIT", "WSO2\n"}, 3},
+                {"Sri Lanka has a rapidly growing freelance and remote work culture in the IT sector. Which platform is commonly used by Sri Lankan freelancers to find remote work opportunities?", {"Upwork", "Fiverr", "Freelancer", "Toptal\n"}, 1},
+                {"In the context of Sri Lanka's IT industry, what does the acronym BPM stand for?", {"Business Process Management", "Basic Programming Module", "Binary Program Model", "Big Data Processing Method\n"}, 0},
+                {"Which Sri Lankan-born computer scientist and entrepreneur is known for co-founding Sun Microsystems and developing the programming language Java?", {"Lakshmi Mittal", "Vinod Khosla", "Andy Rubin", "Dr. Radhika Kannangara\n"}, 2},
+                {"What does the acronym CPU stand for in the context of computer hardware?", {"Central Processing Unit", "Computer Peripheral Unit", "Control and Processing Unit", "Computer Performance Unit\n"}, 0},
+                {"Which device is commonly used to connect a computer to the internet wirelessly?", {"Router", "Keyboard", "Monitor", "Printer\n"}, 0},
+                {"Which computer component is responsible for storing data long-term, even when the computer is powered off?", {"Central Processing Unit (CPU)", "Random Access Memory (RAM)", "Hard Disk Drive (HDD)", "Power Supply Unit (PSU)\n"}, 2},
+                {"Which type of software helps protect your computer from viruses and malware?", {"Web browser", "Video editing software", "Antivirus software", "Word processing software\n"}, 2},
+                {"Which of the following is an example of an operating system?", {"Linux", "Google Chrome", "Adobe Photoshop", "Microsoft Excel\n"}, 0},
+                {"Which of the following is not a web browser?", {"Google Chrome", "Microsoft Excel", "Mozilla Firefox", "Safari\n"}, 1},
+                {"Which programming language is commonly used for creating web pages?", {"Python", "Java", "HTML", "C++\n"}, 2},
+                {"In the context of smartphones, what does GPS stand for?", {"Global Positioning System", "General Phone Service", "Graphics and Photo Sharing", "Global Processing System\n"}, 0},
+                {"What does RAM stand for in computer terminology?", {"Random Access Memory", "Read-Only Memory", "Rapid Application Management", "Remote Access Module\n"}, 0},
+                {"Which technology enables wireless communication between devices over short distances, such as transferring files between a smartphone and a computer?", {"HDMI", "Ethernet", "USB", "Bluetooth\n"}, 3},
+                };
+
+                int numQuestions = sizeof(questions) / sizeof(questions[0]);
+
+                // Shuffle the questions
+                shuffleQuestions(questions, numQuestions);
+              
+  
+                int score = 0;
+                for (int i = 0; i < numQuestions; i++)
+                {
+                    printf("Question %d: %s\n", i + 1, questions[i].Q);
+                    for (int j = 0; j < 4; j++) {
+                    printf("%d. %s\n", j + 1, questions[i].options[j]);
+                    }
+                    
+
+                    int userAnswer;
+                    printf("Your answer (1-4): ");
+                    scanf("%d", &userAnswer);
+
+                    if (userAnswer - 1 == questions[i].correctOption) {
+                    printf("### CORRECT! ###\n\n");
+                    score++;
+                    }
+                    else {
+                    printf("### WRONG! ### The correct answer is: %s\n\n", questions[i].options[questions[i].correctOption]);
+                    }
+                }
+                  
+                  printf("################## QUIZ COMPLETED! ################## \n Your score: ***** %d ***** out of ***** %d ***** \n\n\n", score, numQuestions);
+                  
+                  printf("                                              ################## select another category or exit game! ################## \n\n\n\n\n");
+
+                   goto label;
+
+              }
+
+
+
+            
+              // history chatogory
+              if(x==2)
+              {
+
+                srand(time(NULL));
+
+                 struct Question questions[] = {
+                {"Where is the believed first place where King Vijaya landed in Sri Lanka?", {"Colombo", "Thambapanni", "Kandy", "Jaffna \n"}, 1},
+                {"Who was the first Executive President of Sri Lanka?", {"Sirimavo Bandaranaike", "Ranasinghe Premadasa", "Junius Richard Jayewardene", "J.R. Jayawardhana \n"}, 3},
+                {"What is believed to be the first man-made lake built in Sri Lanka?", {"Parakrama Samudra", "Tissa Wewa", "Basawakkulama", "Minneriya Tank \n"}, 2},
+                {"Which stupa is considered the first stupa built in Sri Lanka?", {"Abhayagiri Dagaba", "Jetavanaramaya", "Ruwanwelisaya", "Thuparamaya \n"}, 3},
+                {"Who was the last King of Sri Lanka?", {"King Kirti Sri Rajasinha", "King Dutugemunu", "King Parakramabahu", "King Sri Wickrama Rajasinghe \n"}, 3},
+                {"Who was the first Prime Minister of Sri Lanka?", {"S.W.R.D. Bandaranaike", "D.S. Senanayake", "Sirimavo Bandaranaike", "Ranil Wickremesinghe \n"}, 1},
+                {"Who wrote the national anthem of Sri Lanka?", {"Rabindranath Tagore", "Ananda Samarakoon", "Kumaratunga Munidasa", "W.D. Amaradeva \n"}, 1},
+                {"Which is considered the first university in Sri Lanka?", {"University of Ruhuna", "University of Colombo", "University of Kelaniya", "University of Moratuwa \n"}, 1},
+                {"Who won Sri Lanka's first Olympic medal?", {"Susanthika Jayasinghe", "K.M. Beenamol", "Duncan White", "Sunil Gunawardene \n"}, 2},
+                {"Which ancient city in Sri Lanka is known for its famous rock fortress that was once the royal palace of King Kasyapa?", {"Polonnaruwa", "Anuradhapura", "Sigiriya", "Dambulla \n"}, 2},
+                {"Which European explorer is credited with discovering Sri Lanka in the 16th century?", {"Christopher Columbus", "Vasco da Gama", "Marco Polo", "Ferdinand Magellan \n"}, 1},
+                {"Which king of Sri Lanka is known for introducing Buddhism to the island in the 3rd century BCE?", {"King Parakramabahu", "King Devanampiya Tissa", "King Ravana", "King Elara \n"}, 1},
+                {"What year was the northern part of Sri Lanka liberated from the LTTE (Liberation Tigers of Tamil Eelam)?", {"1990", "2000", "2005", "2009 \n"}, 3},
+                {"Sri Lanka was formerly known as Ceylon. When did the country officially change its name to Sri Lanka?", {"1948", "1956", "1972", "1980 \n"}, 2},
+                {"Which pharaoh is famous for the construction of the Great Pyramid of Giza?", {"Tutankhamun", "Ramesses II", "Cleopatra", "Khufu \n"}, 3},
+                {"When did World War I begin?", {"1910", "1914", "1917", "1918 \n"}, 1},
+                {"Which political leader of Germany led the country during most of World War I and was later exiled?", {"Otto von Bismarck", "Wilhelm II", "Adolf Hitler", "Joseph Stalin \n"}, 1},
+                {"What event marked the beginning of World War II in Europe?", {"The Treaty of Versailles", "The attack on Pearl Harbor", "The invasion of Poland", "The signing of the Munich Agreement\n"}, 2},
+                {"Who designed and oversaw the construction of the Eiffel Tower in Paris, France?", {"Thomas Edison", "Leonardo da Vinci", "Gustave Eiffel", "Albert Einstein \n"}, 2},
+                {"Who is credited with inventing the first practical handheld mobile phone?", {"Thomas Edison", "Alexander Graham Bell", "Martin Cooper", "Nikola Tesla \n"}, 2},
+                };
+
+                int numQuestions = sizeof(questions) / sizeof(questions[0]);
+
+                
+                shuffleQuestions(questions, numQuestions);
+
+                int score = 0;
+                for (int i = 0; i < numQuestions; i++)
+                {
+                    printf("Question %d: %s\n", i + 1, questions[i].Q);
+                    for (int j = 0; j < 4; j++) {
+                    printf("%d. %s\n", j + 1, questions[i].options[j]);
+                    }
+                  
+
+                   int userAnswer;
+                    printf("Your answer (1-4): ");
+                    scanf("%d", &userAnswer);
+
+                    if (userAnswer - 1 == questions[i].correctOption) {
+                    printf("### CORRECT! ###\n\n");
+                    score++;
+                    }
+                    else {
+                    printf("### WRONG! ### The correct answer is: %s\n\n", questions[i].options[questions[i].correctOption]);
+                    }
+                }
+
+                    printf("################## QUIZ COMPLETED! ################## \n Your score: ***** %d ***** out of ***** %d ***** \n\n\n", score, numQuestions);
+
+                    printf("                                              ################## select another category or exit game! ################## \n\n\n\n\n");
+
+                    goto label;
+              }
+
+
+               // common chatogory
+              if(x==3)
+              {
+
+                srand(time(NULL));
+
+                 struct Question questions[] = {
+                {"What is the largest religion in Sri Lanka?", {"Buddhism", "Hinduism", "Christianity", "Islam \n"}, 0},
+                {"Sri Lanka is often referred to by what nickname due to its shape?", {"The Teardrop Island", "The Pearl of the Indian Ocean", "The Spice Island", "The Emerald Isle \n"}, 1},
+                {"Which famous ancient tree in Sri Lanka is believed to be one of the oldest living trees in the world?", {"Banyan Tree", "Coconut Palm", "Bodhi Tree", "Rubber Tree \n"}, 2},
+                {"Which is the largest island belongs to Sri Lanka?", {"Jaffna Island", "Trincomalee Island", "Mannarm Island", "Batticaloa Island \n"}, 2},
+                {"Sri Lanka's national airline is known by?", {"Air Lanka", "SriLankan Airlines", "Ceylon Airways", "Fly Lanka \n"}, 1},
+                {"What is the tallest mountain in Sri Lanka?", {"Pidurutalagala", "Adam's Peak", "Knuckles Mountain Range", "Horton Plains \n"}, 0},
+                {"What is the main export product of Sri Lanka?", {"Tea", "Coffee", "Spicese", "Rubber \n"}, 0},
+                {"Which Sri Lankan city is known for its historic Dutch fort?", {"Colombo", "Kandy", "Galle", "Anuradhapura \n"}, 2},
+                {"Sri Lanka gained independence from British rule in which year?", {"1948", "1956", "1965", "1972 \n"}, 0},
+                {"What is the highest waterfall in Sri Lanka?", {"Bambarakanda Falls", "Diyaluma Falls", "Ravana Falls", "Dunhinda Falls \n"}, 0},
+                {"Sri Lanka has a famous rock formation that is a UNESCO World Heritage Site. What is it called?", {"Sigiriya", "Adams Peak", "Horton Plains", "Knuckles Range \n"}, 0},
+                {"what is the population sri lanka in 2022?", {"16 million", "35 million", "43 million", "22 million \n"}, 3},
+                {"What is the national gemstone of Sri Lanka?", {"Ruby", "Emerald", "Blue Sapphire", "Diamond \n"}, 2},
+                {"Which is the largest national park in Sri Lanka?", {"Yala National Park", "Udawalawe National Park", "Horton Plains National Park", "Wilpattu National Park \n"}, 3},
+                {"What is the traditional handwoven fabric made in Sri Lanka known as?", {"Batik", "Silk", "Satin", "Lace \n"}, 0},
+                {"Which Sri Lankan cricket legend is known for his record-breaking batting and is often referred to as the Little Master?", {"Kumar Sangakkara", "Arjuna Ranatunga", "Muttiah Muralitharan", "Sanath Jayasuriya \n"}, 3},
+                {"What is the tallest building in Sri Lanka as of 2023?", {"Colombo World Trade Center", "Lotus Tower", "Altair Straight Tower", "Grand Hyatt \n"}, 1},
+                {"Which is the largest district in Sri Lanka by land area?", {"Anuradhapura District", "Gampaha District", "Monaragala District", "Kandy District \n"}, 0},
+                {"Which body of water separates Sri Lanka from India?", {"Arabian Sea", "Bay of Bengal", "Palk Strait", "Andaman Sea \n"}, 2},
+                {"What is the total land area of Sri Lanka in square kilometers?", {"Approximately 65.61 square kilometers", "Approximately 656.1 square kilometers", "Approximately 6,561 square kilometers", "Approximately 65,610 square kilometers \n"}, 3},
+                };
+
+                int numQuestions = sizeof(questions) / sizeof(questions[0]);
+
+                
+                shuffleQuestions(questions, numQuestions);
+
+                int score = 0;
+                for (int i = 0; i < numQuestions; i++)
+                {
+                    printf("Question %d: %s\n", i + 1, questions[i].Q);
+                    for (int j = 0; j < 4; j++) {
+                    printf("%d. %s\n", j + 1, questions[i].options[j]);
+                    }
+                  
+
+                   int userAnswer;
+                    printf("Your answer (1-4): ");
+                    scanf("%d", &userAnswer);
+
+                    if (userAnswer - 1 == questions[i].correctOption) {
+                    printf("### CORRECT! ###\n\n");
+                    score++;
+                    }
+                    else {
+                    printf("### WRONG! ### The correct answer is: %s\n\n", questions[i].options[questions[i].correctOption]);
+                    }
+                }
+
+                    printf("################## QUIZ COMPLETED! ################## \n Your score: ***** %d ***** out of ***** %d ***** \n\n\n", score, numQuestions);
+
+                    printf("                                              ################## select another category or exit game! ################## \n\n\n\n\n");
+
+                    goto label;
+              }
+
+
+               // science chatogory
+              if(x==4)
+              {
+
+                srand(time(NULL));
+
+                 struct Question questions[] = {
+                {"The largest wind farm in the country?", {"Pawan Danavi", "Thambavani", "Nala Danavi", "willwind \n"}, 1},
+                {"which of these animal is not native of sri lanka?", {"Purple-faced langur", "Grizzled giant squirrel", "Sri Lankan junglefowl", "lion-tailed macaque \n"}, 3},
+                {"The area where the coconut Research Institute of Sri Lanka is located?", {"Kurunagala", "Lunuwila", "polgahawela", "Halawatha \n"}, 1},
+                {"Sri Lanka's first Covid vaccine?", {"Oxford/AstraZeneca", "Moderna", "Pfizer/BioNTech", "Sinopharm(Beijing) \n"}, 0},
+                {"The year Sinharaja Forest was declared a UNESCO World Heritage Site?", {"1998", "2005", "1985", "1948 \n"}, 0},
+                {"What is the possible carcinogen, can be found in coconut oil?", {"Asbestos", "Aflatoxin", "vinyl chloride", "Cadmium \n"}, 1},
+                {"What is the most air in the atmosphere?", {"Oxygen", "Nitrogen", "Hydrogen", "Carbon dioxide \n"}, 1},
+                {"What is the chemical name of salt?", {"potassium chloride", "sodium chlorite", "sodium carbonate", "potassium carbonate \n"}, 1},
+                {"Sri Lanka's first hydroelectric power plant?", {"Kotmale", "Wimala Surendra", "Victoria", "Randenigala \n"}, 1},
+                {"What is a plant native to Sri Lanka?", {"Batadomba", "Mango", "Jackfruit", "Mahogany \n"}, 0},
+                {"Which planet is known as the Red Planet?", {"Mars", "Venus", "Jupiter", "Saturn \n"}, 0},
+                {"What is the chemical symbol for the element oxygen?", {"Ox", "Oxg", "O", "Oz \n"}, 2},
+                {"What is the basic unit of life?", {"Cell", "Molecule", "Atom", "Organism \n"}, 0},
+                {"What is the chemical formula for water?", {"H2O", "CO2", "O2", "H2 \n"}, 0},
+                {"What is the largest mammal on Earth?", {"African Elephant", "Blue Whale", "Giraffe", "Polar Bear \n"}, 1},
+                {"What force pulls objects towards the center of the Earth?", {"Gravity", "Magnetism", "Friction", "Inertia \n"}, 0},
+                {"What is the largest organ in the human body?", {"Brain", "Liver", "Skin", "Heart \n"}, 2},
+                {"What gas do humans breathe out as a waste product of respiration?", {"Oxygen (O2)", "Carbon dioxide (CO2)", "Nitrogen (N2)", "Hydrogen (H2) \n"}, 1},
+                {"What is the largest planet in our solar system?", {"Earth", "Venus", "Mars", "Jupiter \n"}, 3},
+                {"Which metal is typically found in a liquid state at room temperature?", {"Sodium", "Vanadium", "Flerovium", "Mercury \n"}, 3},
+                };
+
+                int numQuestions = sizeof(questions) / sizeof(questions[0]);
+
+                
+                shuffleQuestions(questions, numQuestions);
+
+                int score = 0;
+                for (int i = 0; i < numQuestions; i++)
+                {
+                    printf("Question %d: %s\n", i + 1, questions[i].Q);
+                    for (int j = 0; j < 4; j++) {
+                    printf("%d. %s\n", j + 1, questions[i].options[j]);
+                    }
+                  
+
+                   int userAnswer;
+                    printf("Your answer (1-4): ");
+                    scanf("%d", &userAnswer);
+
+                    if (userAnswer - 1 == questions[i].correctOption) {
+                    printf("### CORRECT! ###\n\n");
+                    score++;
+                    }
+                    else {
+                    printf("### WRONG! ### The correct answer is: %s\n\n", questions[i].options[questions[i].correctOption]);
+                    }
+                }
+
+                    printf("################## QUIZ COMPLETED! ################## \n Your score: ***** %d ***** out of ***** %d ***** \n\n\n", score, numQuestions);
+
+                    printf("                                              ################## select another category or exit game! ################## \n\n\n\n\n");
+
+                    goto label;
+              }
+
+
+               // arts chatogory
+              if(x==5)
+              {
+
+                srand(time(NULL));
+
+                 struct Question questions[] = {
+                {"Which of these was the first black and white film screened in Sri Lanka?", {"Rekawa", "Kadaunu poronduwa", "Yugayen Yugayata", "Sada sulan \n"}, 1},
+                {"Who is the creator of the great dramas Sinha Bahu and Maname?", {"Jayalal Rohana", "Ediriweera Sarathchandra", "Parakrama Niriella", "Gamini Haththotuwegama \n"}, 1},
+                {"Which was the first color film in Sinhala cinema?", {"Ranmuthu Duwa", "Gambada Sundari", "Wesathuru Siritha", "Rekawa \n"}, 0},
+                {"During the period of which king created the image of Isurumuniya love couple?", {"During the reign of King Devanampiyathissa", "During the reign of King Dutuganunu", "During the reign of King Walagamba", "During the reign of King Parakramabahu \n"}, 0},
+                {"What is the most famous temple with wood carvings in Sri Lanka?", {"Ambakke Temple", "Kandy Temple", "Anuradhapura Temple", "Polonnaruwa Temple \n"}, 0},
+                {"Puppetry, a special art form of Sri Lanka, is famous for which of these?", {"Kandy", "Colombo", "Ambalangoda", "Galle \n"}, 2},
+                {"Kolam folk dramas started during the time of which king?", {"King Parakramabahu", "King Dutugemunu", "King Mahasammata", "King Vijaya \n"}, 2},
+                {"Which areas are kolam plays popular?", {"Colombo, Kandy, Galle", "Negombo, Anuradhapura, Jaffna", "Ambalangoda, Mirissa, Ginthota, Bentara, Pipitigala, Horana", "Polonnaruwa, Trincomalee, Nuwara Eliya \n"}, 2},
+                {"Which of the following are Sri Lankan village dramas performed using masks?", {"Kollam Drama and Nawa Drama", "Kandyan Dance and Kolam Dance", "Ravana and Rama Drama", "Kathakali and Yakshagana \n"}, 0},
+                {"Who is the artist who played the role of (Korale) in the story (Korale Mhaththaya) who captivated the audience on radio and television?", {"Vijayaratne Warakagoda", "Mervyn Jayathunga", "Rukmani Devi", "Joe Abeywickrama \n"}, 0},
+                {"Who is the film director who was immensely respected by the children of Cyrillaka as Ti Mama?", {"Lester James Peries", "D.B. Nihalsinghe", "Gamini Fonseka", "Titus Thotawatte \n"}, 3},
+                {"Who are known as the kings of Hela cinema?", {"Gamini Fonseka", "Ranjan Ramanayake", "Lester James Peries", "Vijaya Kumaratunga \n"}, 0},
+                {"Who is the famous Sri Lankan painter known for his vibrant and influential works in modern art?", {"Karunaratne Abeysekera", "Vincent van Gogh", "George Keyt", "Cliff Foenander \n"}, 2},
+                {"Who is the Sri Lankan singer often credited with singing the most number of songs in Sri Lanka?", {"Annesley Malewana", "H.R. Jothipala", "Victor Rathnayake", "Nanda Malini \n"}, 1},
+                {"Who painted the Mona Lisa?", {"Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Rembrandt \n"}, 3},
+                {"Who is often referred to as the (King of Pop) and is known for hits like (Thriller) and (Billie Jean)?", {"Prince", "Elvis Presley", "Michael Jackson", "Madonna \n"}, 2},
+                {"Who wrote the book series that features a character named Harry Potter and served as the basis for the film series?", {"J.R.R. Tolkien", "C.S. Lewis", "J.K. Rowling", "Suzanne Collins \n"}, 2},
+                {"Who is the artist behind the masterpiece The Last Supper?", {"Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo \n"}, 2},
+                {"What is the highest-grossing film of all time in terms of box office revenue?", {"Titanic", "Avatar", "Avengers: Endgame", "Star Wars: The Force Awakens \n"}, 1},
+                {"What was the most-listened-to song on streaming and digital platforms, such as Spotify and YouTube, as of my last knowledge update in September 2021?", {"Shape of You by Ed Sheeran", "Old Town Road by Lil Nas X", "Despacito by Luis Fonsi and Daddy Yankee", "Uptown Funk by Mark Ronson ft. Bruno Mars \n"}, 1},
+                };
+
+                int numQuestions = sizeof(questions) / sizeof(questions[0]);
+
+                
+                shuffleQuestions(questions, numQuestions);
+
+                int score = 0;
+                for (int i = 0; i < numQuestions; i++)
+                {
+                    printf("Question %d: %s\n", i + 1, questions[i].Q);
+                    for (int j = 0; j < 4; j++) {
+                    printf("%d. %s\n", j + 1, questions[i].options[j]);
+                    }
+                  
+
+                   int userAnswer;
+                    printf("Your answer (1-4): ");
+                    scanf("%d", &userAnswer);
+
+                    if (userAnswer - 1 == questions[i].correctOption) {
+                    printf("### CORRECT! ###\n\n");
+                    score++;
+                    }
+                    else {
+                    printf("### WRONG! ### The correct answer is: %s\n\n", questions[i].options[questions[i].correctOption]);
+                    }
+                }
+
+                    printf("################## QUIZ COMPLETED! ################## \n Your score: ***** %d ***** out of ***** %d ***** \n\n\n", score, numQuestions);
+
+                    printf("                                              ################## select another category or exit game! ################## \n\n\n\n\n");
+
+                    goto label;
+              }
+              
+
+              if(x==6)
+              {
+
+              printf(" ៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛\n\n");
+
+              printf("                                                            # THSANK YOU FOR PLAYING #                                                             \n\n");
+
+              printf(" ៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛៛\n\n\n");
+
+              }
+
+                      
+    }           
+    else
+    {
+        printf("####INVALIED#### Number please enter 0 to start game\n\n");
+    }
+    
+  return 0;
+}
